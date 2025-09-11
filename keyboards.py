@@ -7,7 +7,7 @@ OWNER_ID = int(os.getenv('OWNER_ID', '0'))
 def get_owner_panel():
     """Main owner control panel"""
     keyboard = [
-        [InlineKeyboardButton("🎤 Premium TTS", callback_data="owner_tts")],
+        [InlineKeyboardButton("🎤 TTS", callback_data="owner_tts")],
         [InlineKeyboardButton("👑 User Management", callback_data="owner_users"), InlineKeyboardButton("📢 Broadcast Message", callback_data="owner_broadcast")],
         [InlineKeyboardButton("📊 Bot Analytics", callback_data="owner_status"), InlineKeyboardButton("💰 Credit Handler", callback_data="owner_credit_handler")],
         [InlineKeyboardButton("⚙️ Settings", callback_data="owner_settings")]
@@ -17,9 +17,9 @@ def get_owner_panel():
 # User Panel Keyboard
 def get_user_panel():
     keyboard = [
-        [InlineKeyboardButton("🎤 Start TTS", callback_data="user_tts")],
+        [InlineKeyboardButton("🎤 TTS", callback_data="user_tts")],
         [
-            InlineKeyboardButton("👤 Complete Profile", callback_data="user_profile"),
+            InlineKeyboardButton("👤 Profile", callback_data="user_profile"),
             InlineKeyboardButton("💰 Get Credits", callback_data="user_credits")
         ],
         [
@@ -315,7 +315,7 @@ def get_owner_referral_panel():
 # Support Contact Panel
 def get_support_contact_panel():
     keyboard = [
-        [InlineKeyboardButton("👨‍💼 Contact Owner", url="tg://user?id=" + str(OWNER_ID))],
+        [InlineKeyboardButton("👨‍💼 Contact Owner", url="tg://@PR_GAMING_25)],
         [InlineKeyboardButton("⬅️ Back", callback_data="back_to_user")]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -343,44 +343,41 @@ def get_voice_selection():
     """Get voice selection keyboard perfectly synchronized with TTS backend"""
     try:
         keyboard = [
-            # Info header with auto-detection feature
-            [InlineKeyboardButton("🎤 10 Premium Voices • Auto Language Detection", callback_data="dummy")],
-            
             # Male Voices Section
             [InlineKeyboardButton("👨 MALE VOICES (5) - हिंदी & English", callback_data="dummy")],
             
             # Male Voices Row 1: Deep Bass (Hindi) + Ocean Calm (English)
             [
-                InlineKeyboardButton("🎵 Deep Bass (हिंदी)", callback_data="voice_male1"),
-                InlineKeyboardButton("🎵 Ocean Calm (EN)", callback_data="voice_male2")
+                InlineKeyboardButton("🎵 Deep Bass", callback_data="voice_male1"),
+                InlineKeyboardButton("🎵 Ocean Calm", callback_data="voice_male2")
             ],
             
             # Male Voices Row 2: Professional (Hindi) + Energetic (English)
             [
-                InlineKeyboardButton("🎵 Professional (हिंदी)", callback_data="voice_male3"),
-                InlineKeyboardButton("🎵 Energetic (EN)", callback_data="voice_male4")
+                InlineKeyboardButton("🎵 Professional", callback_data="voice_male3"),
+                InlineKeyboardButton("🎵 Energetic ", callback_data="voice_male4")
             ],
             
             # Male Voices Row 3: Warm Tone (Hindi)
-            [InlineKeyboardButton("🎵 Warm Tone (हिंदी)", callback_data="voice_male5")],
+            [InlineKeyboardButton("🎵 Warm Tone", callback_data="voice_male5")],
             
             # Female Voices Section
             [InlineKeyboardButton("👩 FEMALE VOICES (5) - हिंदी & English", callback_data="dummy")],
             
             # Female Voices Row 1: Honey Sweet (Hindi) + Crystal Clear (English)
             [
-                InlineKeyboardButton("🎶 Honey Sweet (हिंदी)", callback_data="voice_female1"),
-                InlineKeyboardButton("🎶 Crystal Clear (EN)", callback_data="voice_female2")
+                InlineKeyboardButton("🎶 Honey Sweet", callback_data="voice_female1"),
+                InlineKeyboardButton("🎶 Crystal Clear", callback_data="voice_female2")
             ],
             
             # Female Voices Row 2: Soft Whisper (Hindi) + Bright Star (English)
             [
-                InlineKeyboardButton("🎶 Soft Whisper (हिंदी)", callback_data="voice_female3"),
-                InlineKeyboardButton("🎶 Bright Star (EN)", callback_data="voice_female4")
+                InlineKeyboardButton("🎶 Soft Whisper", callback_data="voice_female3"),
+                InlineKeyboardButton("🎶 Bright Star", callback_data="voice_female4")
             ],
             
             # Female Voices Row 3: Melodic Angel (Hindi)
-            [InlineKeyboardButton("🎶 Melodic Angel (हिंदी)", callback_data="voice_female5")],
+            "🎶 Melodic Angel", callback_data="voice_female5")],
             
             # Back button
             [InlineKeyboardButton("⬅️ Back to Main", callback_data="back_to_user")]
@@ -390,8 +387,8 @@ def get_voice_selection():
         print(f"❌ Error creating voice selection keyboard: {e}")
         # Return enhanced fallback keyboard
         return InlineKeyboardMarkup([
-            [InlineKeyboardButton("👨 Male Voice (हिंदी)", callback_data="voice_male1")],
-            [InlineKeyboardButton("👩 Female Voice (हिंदी)", callback_data="voice_female1")],
+            [InlineKeyboardButton("👨 Male Voice", callback_data="voice_male1")],
+            [InlineKeyboardButton("👩 Female Voice", callback_data="voice_female1")],
             [InlineKeyboardButton("⬅️ Back", callback_data="back_to_user")]
         ])
 
@@ -400,10 +397,6 @@ def get_voice_selection_owner():
     """Get voice selection keyboard for owner - perfectly synced with backend"""
     try:
         keyboard = [
-            # Owner header with technical details
-            [InlineKeyboardButton("👑 OWNER TTS - 10 Premium Neural Voices", callback_data="dummy")],
-            [InlineKeyboardButton("🎤 Edge TTS • Language Detection • SSML Enhanced", callback_data="dummy")],
-            
             # Male Voices Section
             [InlineKeyboardButton("👨 MALE VOICES (5)", callback_data="dummy")],
             
