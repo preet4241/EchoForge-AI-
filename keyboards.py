@@ -315,7 +315,7 @@ def get_owner_referral_panel():
 # Support Contact Panel
 def get_support_contact_panel():
     keyboard = [
-        [InlineKeyboardButton("👨‍💼 Contact Owner", url="tg://@PR_GAMING_25)],
+        [InlineKeyboardButton("👨‍💼 Contact Owner", url="tg://resolve?domain=PR_GAMING_25")],
         [InlineKeyboardButton("⬅️ Back", callback_data="back_to_user")]
     ]
     return InlineKeyboardMarkup(keyboard)
