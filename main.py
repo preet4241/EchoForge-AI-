@@ -1547,7 +1547,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
     # User callbacks
     elif data == "start_bot":
         await callback_query.edit_message_text(
-            f"🌟 **स्वागत hai** {callback_query.from_user.first_name}! 🌟\n\n"
+            f"🌟 **Wellcome** {callback_query.from_user.first_name}! 🌟\n\n"
             f"💎 **aapke Credits:** 10\n"
             f"🚀 **Ready for TTS Magic?** ✨\n\n"
             f"🎯 नीचे दिए गए options me se choose kare:",
@@ -1557,7 +1557,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
     elif data == "back_to_user":
         user = get_user_from_db(user_id)
         await callback_query.edit_message_text(
-            f"🌟 **स्वागत hai** {callback_query.from_user.first_name}! 🌟\n\n"
+            f"🌟 **Wellcome** {callback_query.from_user.first_name}! 🌟\n\n"
             f"💎 **aapke Credits:** {user.credits}\n"
             f"🚀 **Ready for TTS Magic?** ✨\n\n"
             f"🎯 नीचे दिए गए options me se choose kare:",
@@ -1660,7 +1660,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
             await callback_query.edit_message_text(
                 f"👤 **Complete User Profile** 👤\n\n"
                 f"━━━━━━━━━━━━━━━━━━━━━━\n"
-                f"📝 **नाम:** {callback_query.from_user.first_name or 'User'} {callback_query.from_user.last_name or ''}\n"
+                f"📝 **Name:** {callback_query.from_user.first_name or 'User'} {callback_query.from_user.last_name or ''}\n"
                 f"👤 **Username:** @{callback_query.from_user.username or 'None'}\n"
                 f"🆔 **User ID:** `{user_id}`\n"
                 f"📅 **Join Date:** {user.join_date.strftime('%d/%m/%Y %H:%M')}\n"
@@ -2588,7 +2588,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
     elif data == "i_know_that":
         user = get_user_from_db(user_id)
         await callback_query.edit_message_text(
-            f"🌟 **स्वागत hai** {callback_query.from_user.first_name}! 🌟\n\n"
+            f"🌟 **Wellcome** {callback_query.from_user.first_name}! 🌟\n\n"
             f"💎 **aapke Credits:** {user.credits}\n"
             f"🚀 **Ready for TTS Magic?** ✨\n\n"
             f"🎯 नीचे दिए गए options me se choose kare:",
@@ -2680,14 +2680,13 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
             "🎙️  20+ Hindi & English voice styles  \n"
             "⚡  Ultra-fast conversion speed  \n"
             "🎶  Studio-quality audio output  \n"
-            "🆓  Free daily credits for har user  \n"
             "👥  Invite friends & earn rewards  \n"
             "💳  Premium system pro users ke liye  \n\n"
             "🔧 Technology: Microsoft Edge TTS  \n"
-            "🚀 Version: 2.1.0 (Pro Upgrade)  \n\n"
+            "🚀 Version: 1.0.0 (Pro Upgrade)  \n\n"
             f"{rating_text}\n"
             "👑 Owner & Developer: ＰＲΞΞＴ ＢＯＰＣＨΞ  \n"
-            "      📌 Username: @Klyro  \n\n"
+            "      📌 Username: @KissuHQ  \n\n"
             "✨ Text bolega – aapki awaaz me ✨",
             reply_markup=get_user_about_keyboard()
         )
@@ -2722,7 +2721,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
             "━━━━━━━━━━━━━━━━━━━━━━\n"
             "**Kripaya अपना issue बताएं**\n"
             "━━━━━━━━━━━━━━━━━━━━━━\n\n"
-            "📝 **aap क्ya problem face kar रहे hai?**\n\n"
+            "📝 **aap kya problem face kar रहे hai?**\n\n"
             "🔧 **aap लिख sakte hai:**\n"
             "▪️ Technical Issues (App crashes, features not working)\n"
             "▪️ Payment Problems (Credits not added, payment failed)\n"
@@ -2821,7 +2820,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
         user_states[user_id] = UserState.WAITING_BAN_USER_ID
         await callback_query.edit_message_text(
             "🚫 **Ban User**\n\n"
-            "Kripaya user ID enter kare जिse ban karna hai:",
+            "Kripaya user ID enter kare jishe ban karna hai:",
             reply_markup=get_back_to_owner()
         )
 
@@ -2829,7 +2828,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
         user_states[user_id] = UserState.WAITING_UNBAN_USER_ID
         await callback_query.edit_message_text(
             "✅ **Unban User**\n\n"
-            "Kripaya user ID enter kare जिse unban karna hai:",
+            "Kripaya user ID enter kare jishe unban karna hai:",
             reply_markup=get_back_to_owner()
         )
 
