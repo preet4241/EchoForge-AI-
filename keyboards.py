@@ -377,7 +377,7 @@ def get_voice_selection():
             ],
             
             # Female Voices Row 3: Melodic Angel (Hindi)
-            "🎶 Melodic Angel", callback_data="voice_female5")],
+            [InlineKeyboardButton("🎶 Melodic Angel", callback_data="voice_female5")],
             
             # Back button
             [InlineKeyboardButton("⬅️ Back to Main", callback_data="back_to_user")]
