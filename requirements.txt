@@ -19,6 +19,7 @@ pydub>=0.25.1
 speechrecognition>=3.10.1
 
 # 🌐 HTTP & Async Support
+flask
 requests>=2.31.0
 aiohttp>=3.9.1
 aiofiles>=23.2.0
