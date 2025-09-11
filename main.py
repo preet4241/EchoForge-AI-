@@ -890,7 +890,8 @@ async def start_command(client: Client, message: Message):
                 "🆓 Free credits naye users ke liye\n"
                 "💰 Credit system\n\n"
                 "Aapko **10 free credits** mile hain!\n"
-                "Har word ke liye 0.05 credit charge hota hai.",
+                "Har word ke liye 0.05 credit charge hota hai.\n"
+                "Y3 Bot abhi Developing Mode main hai testing perouse ke liye deploy kiya gya hai",
                 reply_markup=get_about_keyboard()
             )
         else:
