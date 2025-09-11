@@ -59,7 +59,6 @@ pytz>=2023.3
 charset-normalizer>=3.3.2
 
 # PostgreSQL Client Dependencies
-pg-dump>=1.0.0
 subprocess32>=3.5.4
 
 # ================================================================
