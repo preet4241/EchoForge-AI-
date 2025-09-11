@@ -2579,11 +2579,12 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
             db.close()
 
     elif data == "contact_support":
-        await callback_query.edit_message_text(
-            "📞 **Contact Support**\n\n"
-            "Support ke liye owner se संpar्क kare:",
-            reply_markup=get_support_contact_panel()
-        )
+        keyboard = [
+        [InlineKeyboardButton("👨‍💼 Contact Owner", url="tg://resolve?domain=KissuHQ")],
+        [InlineKeyboardButton("⬅️ Back", callback_data="back_to_user")]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+    
 
     elif data == "i_know_that":
         user = get_user_from_db(user_id)
