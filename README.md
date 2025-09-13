@@ -1,234 +1,259 @@
+
 # 🎤 TTS Telegram Bot
 
-**Advanced Multi-Language Text-to-Speech Bot with Credit System**
+An advanced **Text-to-Speech Telegram Bot** with comprehensive credit system, multi-language support, and powerful administrative features.
 
-A sophisticated Telegram bot that converts text messages to high-quality audio using Microsoft Edge TTS, featuring a complete credit economy, referral system, and multi-language support.
+## ✨ Features
 
----
+### 🎵 Text-to-Speech Capabilities
+- **10+ Voice Options**: Multiple male and female voices
+- **Multi-Language Support**: Hindi, English, Spanish, French, German
+- **High-Quality Audio**: Microsoft Edge TTS integration
+- **Real-time Processing**: Fast audio generation and delivery
 
-## 🌟 **Key Features**
+### 💰 Credit System
+- **Dynamic Credit Management**: Earn and spend credits for TTS usage
+- **Multiple Earning Methods**: Referrals, free credit links, purchases
+- **Payment Integration**: QR code-based payment processing
+- **Transaction History**: Detailed tracking and CSV exports
 
-### 🎯 **Multi-Language TTS Support**
-- **10 Unique Neural Voices** (5 Male + 5 Female)
-- **English, Hindi (Devanagari), Roman Hindi** language detection
-- **Microsoft Edge TTS** for professional voice quality
-- **Each voice is truly unique** - no voice switching
+### 👥 User Management
+- **User Profiles**: Comprehensive user statistics and management
+- **Referral System**: Reward users for bringing friends
+- **Access Control**: Ban/unban functionality with reasons
+- **Activity Tracking**: Last active timestamps and usage patterns
 
-### 💰 **Credit Economy System**
-- **10 Free Credits** for new users  
-- **Earn Credits** through referral links and free activities
-- **Purchase Credits** via integrated payment system
-- **Complete Transaction History** with detailed tracking
+### 🛠️ Administrative Features
+- **Owner Panel**: Complete bot management interface
+- **Broadcast Messages**: Send messages to all users with placeholders
+- **Settings Management**: Configurable credit rates and system parameters
+- **Database Backups**: Automated backups every 10 minutes
+- **Statistics Dashboard**: Real-time bot usage and user analytics
 
-### 🔄 **Advanced Referral Program**
-- **Simple referral codes** (`ref_123456`)
-- **Automatic credit distribution** on successful referrals
-- **Statistics tracking** for engagement monitoring
+### 🌐 Web Dashboard
+- **Real-time Monitoring**: System resource usage and bot statistics
+- **Health Checks**: API endpoints for deployment monitoring
+- **User Analytics**: Comprehensive usage reports and trends
 
-### 🛡️ **Smart Message Management**
-- **Audio files preserved permanently** 📁
-- **Text messages auto-deleted** for chat cleanliness
-- **Context-aware deletion timings**
-- **Privacy-focused sensitive content cleanup**
+## 🚀 Quick Start
 
----
-
-## 🚀 **Quick Start**
-
-### **Requirements**
+### Prerequisites
 - Python 3.11+
-- Telegram Bot Token
-- Microsoft Edge TTS (included)
+- Telegram Bot Token from [@BotFather](https://t.me/BotFather)
+- Optional: PostgreSQL database for production
 
-### **Installation**
+### Installation
 
-```bash
-# Clone repository
-git clone <your-repo-url>
-cd tts-telegram-bot
+1. **Clone or download the project files**
 
-# Install dependencies
-pip install -r requirements.txt
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# Configure environment
-cp .env.example .env
-# Add your BOT_TOKEN, API_ID, API_HASH
+3. **Configure environment variables**:
+   Create a `.env` file in the root directory:
+   ```env
+   BOT_TOKEN=your_telegram_bot_token
+   API_ID=your_telegram_api_id
+   API_HASH=your_telegram_api_hash
+   OWNER_ID=your_telegram_user_id
+   CHANNEL_ID=your_notification_channel_id  # Optional
+   DATABASE_URL=sqlite:///./bot.db  # or PostgreSQL URL for production
+   BOT_USERNAME=your_bot_username
+   ```
+
+4. **Run the bot**:
+   ```bash
+   python main.py
+   ```
+
+## 🗂️ Project Structure
+
+```
+├── main.py                 # Main bot application
+├── database.py            # Database models and configuration
+├── tts_service.py         # Text-to-speech service implementation
+├── keyboards.py           # Telegram inline keyboards
+├── web_server.py          # Flask web dashboard
+├── credit_history.py      # Credit transaction tracking
+├── transaction_history.py # Transaction export and management
+├── referral_system.py     # User referral functionality
+├── message_deletion.py    # Automated message cleanup
+├── free_credit.py         # Free credit link generation
+├── migrate_db.py          # Database migration utilities
+├── templates/             # HTML templates for web dashboard
+│   ├── base.html
+│   └── dashboard.html
+└── temp_files/           # Temporary file storage
 ```
 
-### **Environment Variables**
+## 📊 Database Schema
 
-Create `.env` file:
-```env
-BOT_TOKEN=your_telegram_bot_token
-API_ID=your_api_id  
-API_HASH=your_api_hash
-OWNER_ID=your_telegram_user_id
-DATABASE_URL=sqlite:///bot.db  # or PostgreSQL URL for production
-```
+### Core Tables
+- **users**: User profiles and credit balances
+- **tts_requests**: TTS usage history
+- **credit_transactions**: Credit earning/spending records
+- **payment_requests**: Payment processing records
+- **referral_system**: User referral tracking
+- **bot_settings**: Configurable system parameters
 
-### **Run Bot**
-```bash
-python main.py
-```
+### Supported Databases
+- **SQLite**: Default for development and small deployments
+- **PostgreSQL**: Recommended for production environments
 
----
+## 🔧 Configuration
 
-## 🎙️ **Voice Gallery**
+### Bot Settings (Configurable via Owner Panel)
+- **Welcome Credits**: Credits given to new users (default: 10)
+- **TTS Charge**: Credits per word for TTS (default: 0.05)
+- **Payment Rate**: Credits per rupee (default: 10)
+- **Link Timeout**: Free credit link validity (default: 10 minutes)
 
-### **👨 Male Voices**
-- **Deep Tone** - `en-IN-PrabhatNeural`
-- **Warm Tone** - `hi-IN-RehaanNeural`  
-- **Calm Voice** - `en-IN-AaravNeural`
-- **Gentle Speaker** - `hi-IN-MadhurNeural`
-- **Smooth Narrator** - `en-IN-AnanyaNeural`
+### Environment Variables
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `BOT_TOKEN` | Telegram bot token from BotFather | Yes |
+| `API_ID` | Telegram API ID from my.telegram.org | Yes |
+| `API_HASH` | Telegram API hash from my.telegram.org | Yes |
+| `OWNER_ID` | Telegram user ID of the bot owner | Yes |
+| `CHANNEL_ID` | Channel for notifications (optional) | No |
+| `DATABASE_URL` | Database connection string | No |
+| `BOT_USERNAME` | Bot username for referral links | No |
 
-### **👩 Female Voices**  
-- **Sweet Voice** - `en-IN-NeerjaNeural`
-- **Melodic Angel** - `hi-IN-KavyaNeural`
-- **Crystal Clear** - `en-IN-PriyaNeural`
-- **Honey Sweet** - `hi-IN-SwaraNeural`
-- **Elegant Lady** - `en-IN-ShaliniNeural`
+## 🎮 Usage
 
----
+### For Users
+1. **Start the bot**: Send `/start` to begin
+2. **Select TTS**: Choose voice type and enter text
+3. **Earn Credits**: Use referral system or buy credits
+4. **Track Usage**: View transaction history and profile stats
 
-## 💡 **Usage Examples**
+### For Owners
+1. **Access Owner Panel**: Owners get special administrative interface
+2. **Manage Users**: Ban, unban, give credits, view user info
+3. **Configure Settings**: Adjust credit rates, payment settings
+4. **Monitor System**: View comprehensive bot statistics
+5. **Backup Data**: Automated database backups to channel
 
-### **Basic TTS**
-```
-User: "Hello bhaiya, kaise ho?"
-Bot: 🎤 [Audio file with chosen voice]
-```
+## 🌐 Web Dashboard
 
-### **Language Auto-Detection**
-- **English:** "How are you today?"
-- **Hindi:** "आप कैसे हैं?"  
-- **Roman Hindi:** "Aaj kaisa din tha?"
+Access the web dashboard at `http://localhost:5000` (or your deployment URL):
 
-### **Credit Management**
-- Check balance: `/credits`
-- View history: `/history`
-- Get referral link: `/referral`
+- **System Monitoring**: CPU, memory, disk usage
+- **Bot Statistics**: User count, TTS requests, revenue
+- **Health Checks**: API endpoints for monitoring services
 
----
+### API Endpoints
+- `GET /` - Main dashboard
+- `GET /health` - Health check with database status
+- `GET /api/status` - Simple status check
+- `GET /api/stats` - Bot statistics (JSON)
 
-## 🏗️ **Architecture**
+## 💳 Payment System
 
-### **Core Components**
-- **`main.py`** - Bot client and handlers
-- **`tts_service.py`** - Voice generation engine  
-- **`message_deletion.py`** - Smart cleanup system
-- **`credit_history.py`** - Transaction tracking
-- **`keyboards.py`** - Interactive UI components
+### QR Code Setup
+1. Access Owner Panel → Settings → QR Code Settings
+2. Upload QR code image or provide URL
+3. Set UPI ID and payment name
+4. Users can now buy credits via QR payments
 
-### **Database Design**
-- **Dual Database System**
-  - Main DB: User data, settings, basic transactions
-  - Credit History DB: Detailed transaction logs
-- **SQLAlchemy ORM** with SQLite/PostgreSQL support
+### Payment Processing
+- Users request credits and provide transaction ID
+- Owner receives notification with verification options
+- Manual verification and credit addition
+- Automatic user notification on confirmation
 
-### **Message Management Strategy**
-- ✅ **Audio Files: PERMANENT** (never deleted)
-- ⏰ **Text Messages: Auto-deleted** with smart timing
-- 🔒 **Sensitive Content: Quick cleanup** (8 seconds)
-- 📋 **Menu/Info: Medium timing** (45-60 seconds)
+## 🔄 Backup & Restore
 
----
+### Automated Backups
+- **Frequency**: Every 10 minutes
+- **Location**: Configured notification channel
+- **Content**: Complete database exports (both main and credit history)
+- **Format**: SQL dumps (PostgreSQL) or SQLite files
 
-## 🔧 **Advanced Configuration**
+### Manual Backup Restore
+1. Access Owner Panel → Settings → Database Backup
+2. Upload main database file (.sql or .db)
+3. Upload credit history file (.db)
+4. System automatically processes and restores data
 
-### **Production Deployment**
-```bash
-# Use PostgreSQL for production
-DATABASE_URL=postgresql://user:password@host:port/database
+## 🚀 Deployment on Replit
 
-# Enable channel backup
-CHANNEL_ID=-100123456789  # Your backup channel
+This bot is optimized for Replit deployment:
 
-# Configure credit settings
-WELCOME_CREDITS=10
-REFERRAL_BONUS=5
-```
+1. **Import Project**: Create new Repl and upload files
+2. **Install Dependencies**: Run `pip install -r requirements.txt`
+3. **Configure Secrets**: Set environment variables in Replit Secrets
+4. **Enable Always On**: For continuous operation (Hacker plan)
+5. **Monitor via Dashboard**: Access web interface at your Repl URL
 
-### **Custom Voice Settings**
-Modify `VOICE_SETTINGS` in `tts_service.py` to add more voices or adjust parameters.
+### Replit-Specific Features
+- **Port 5000**: Configured for Replit's port forwarding
+- **Keep Alive**: Web server prevents sleeping
+- **Environment Integration**: Automatic secrets loading
+- **Database Persistence**: SQLite files preserved between runs
 
----
+## 📈 Monitoring & Analytics
 
-## 🛠️ **Development**
+### Real-time Statistics
+- **User Metrics**: Total users, active users, new registrations
+- **Usage Analytics**: TTS requests, credit transactions, revenue
+- **System Health**: Database connections, memory usage, uptime
 
-### **Project Structure**
-```
-tts-telegram-bot/
-├── main.py                 # Bot entry point
-├── tts_service.py         # TTS engine
-├── message_deletion.py    # Cleanup service  
-├── database.py           # Main database models
-├── credit_history.py     # Transaction database
-├── keyboards.py          # UI components
-├── requirements.txt      # Dependencies
-└── README.md            # Documentation
-```
+### Transaction Exports
+- **CSV Downloads**: Complete transaction history
+- **Date Range Filters**: Custom period exports
+- **User-specific**: Individual transaction tracking
+- **Payment Tracking**: Revenue and payment request monitoring
 
-### **Adding New Features**
-1. Create service classes for complex features
-2. Use proper message types for deletion timing
-3. Follow the existing database pattern
-4. Add comprehensive logging
+## 🔧 Development
 
----
+### Adding New Features
+1. **Voice Types**: Extend `tts_service.py` with new voice options
+2. **Payment Methods**: Integrate additional payment gateways
+3. **Languages**: Add new TTS language support
+4. **Admin Features**: Extend owner panel functionality
 
-## 📊 **Performance & Scale**
+### Database Migrations
+- Use `migrate_db.py` for schema updates
+- Test migrations on SQLite before PostgreSQL deployment
+- Backup data before running migrations
 
-### **Optimization Features**
-- **Connection retry logic** with exponential backoff
-- **Threaded TTS processing** for concurrent requests
-- **Automatic message cleanup** to prevent chat bloat
-- **Database indexing** for fast credit lookups
+## 🛡️ Security Features
 
-### **Scalability**
-- Supports both **SQLite** (single instance) and **PostgreSQL** (multi-instance)
-- **Modular architecture** for easy feature additions
-- **Efficient memory management** with temporary file cleanup
+- **Owner-only Access**: Administrative functions restricted to owner
+- **User State Management**: Secure session handling
+- **Database Security**: Parameterized queries prevent injection
+- **Environment Variables**: Sensitive data stored securely
+- **Rate Limiting**: Built-in protection against abuse
 
----
+## 📞 Support
 
-## 🤝 **Support**
+### For Users
+- Use the "Contact Support" button in the bot
+- Messages are automatically forwarded to the owner
+- Response time: Usually 2-4 hours
 
-### **Troubleshooting**
-- Check bot permissions in your Telegram channel
-- Verify environment variables are set correctly
-- Ensure internet connectivity for Edge TTS API
-- Review logs in `/logs` directory
+### For Developers
+- Check console logs for error messages
+- Use health check endpoints for monitoring
+- Review database logs for transaction issues
 
-### **Common Issues**
-- **Bot not responding:** Check BOT_TOKEN
-- **TTS failed:** Verify internet connection
-- **Credits not updating:** Check database permissions
-- **Messages not deleting:** Verify bot admin rights
+## 📄 License
 
----
+This project is provided as-is for educational and personal use. Please ensure compliance with Telegram's Bot API terms of service and local regulations when deploying.
 
-## 📈 **Future Roadmap**
+## 🙏 Credits
 
-- [ ] More voice languages (Tamil, Bengali, etc.)
-- [ ] Custom voice speed/pitch controls
-- [ ] Bulk TTS processing
-- [ ] Voice mixing and effects
-- [ ] Advanced analytics dashboard
-- [ ] API endpoints for integration
-
----
-
-## 💻 **Tech Stack**
-
-- **Framework:** Pyrogram (Telegram MTProto)
-- **TTS Engine:** Microsoft Edge TTS
-- **Database:** SQLAlchemy + SQLite/PostgreSQL  
-- **Language:** Python 3.11+
-- **Architecture:** Async/Await with service layers
+- **Text-to-Speech**: Microsoft Edge TTS
+- **Telegram Framework**: Pyrogram
+- **Database**: SQLAlchemy ORM
+- **Web Framework**: Flask
+- **UI Components**: Custom Telegram inline keyboards
 
 ---
 
-**Made with ❤️ for the Telegram community**
+**Made with ❤️ for the Telegram Bot community**
 
-*Transform your text into perfect audio with professional-grade voices!* 🎯
+*For questions, suggestions, or contributions, please contact the bot owner or check the project documentation.*
