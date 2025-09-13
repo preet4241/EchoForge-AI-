@@ -24,7 +24,7 @@ def get_user_referral_link(user_id):
     """Get user's referral link"""
     referral_code = create_user_referral_code(user_id)
     bot_username = os.getenv('BOT_USERNAME', 'your_bot_username')
-    referral_link = f"https://t.me/{bot_username}?start={referral_code}"
+    referral_link = f"https://t.me/EchoForgeAI_Bot?start={referral_code}"
     return referral_link, referral_code
 
 def get_user_referral_stats(user_id):
