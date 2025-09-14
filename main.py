@@ -2732,7 +2732,7 @@ async def callback_handler(client: Client, callback_query: CallbackQuery):
             "🚀 Version: 2.1.0 (Pro Upgrade)  \n\n"
             f"{rating_text}\n"
             "👑 Owner & Developer: ＰＲΞΞＴ ＢＯＰＣＨΞ  \n"
-            "      📌 Username: @Klyro  \n\n"
+            "      📌 Username: @KissuHQ  \n\n"
             "✨ Text bolega – aapki awaaz me ✨",
             reply_markup=get_user_about_keyboard()
         )
