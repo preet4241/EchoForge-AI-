@@ -755,7 +755,7 @@
         {% endif %}
         
         <div class="footer">
-            <h3>🤖 TTS Telegram Bot v{{ stats.bot_version if stats else '2.1.0' }}</h3>
+            <h3>🤖 TTS Telegram Bot v{{ stats.bot_version if stats else '2.0.0' }}</h3>
             <p>Professional Web Dashboard for Advanced Bot Management</p>
             <p>Made with ❤️ for seamless bot administration and monitoring</p>
             <div style="margin-top: 20px;">
@@ -792,7 +792,7 @@
             
             setTimeout(() => {
                 location.reload();
-            }, 1000);
+            }, 30000);
         }
         
         function toggleAutoRefresh() {
